@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>ft_menu.xml</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #e8bf6a;}
+.s1 { color: #bababa;}
+.s2 { color: #6a8759;}
+.s3 { color: #a9b7c6;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+ft_menu.xml</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;?</span><span class="s1">xml version</span><span class="s2">=&quot;1.0&quot; </span><span class="s1">encoding</span><span class="s2">=&quot;utf-8&quot;</span><span class="s0">?&gt;</span>
+<span class="s0">&lt;androidx.constraintlayout.widget.ConstraintLayout </span><span class="s1">xmlns:android</span><span class="s2">=&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="s1">xmlns:app</span><span class="s2">=&quot;http://schemas.android.com/apk/res-auto&quot;</span>
+    <span class="s1">xmlns:tools</span><span class="s2">=&quot;http://schemas.android.com/tools&quot;</span>
+    <span class="s1">android:layout_width</span><span class="s2">=&quot;match_parent&quot;</span>
+    <span class="s1">android:layout_height</span><span class="s2">=&quot;match_parent&quot;</span>
+    <span class="s1">tools:context</span><span class="s2">=&quot;.MainActivity&quot; </span><span class="s0">&gt;</span>
+
+    <span class="s0">&lt;LinearLayout</span>
+        <span class="s1">android:layout_width</span><span class="s2">=&quot;match_parent&quot;</span>
+        <span class="s1">android:layout_height</span><span class="s2">=&quot;match_parent&quot;</span>
+        <span class="s1">android:background</span><span class="s2">=&quot;@color/black&quot;</span>
+        <span class="s1">android:orientation</span><span class="s2">=&quot;vertical&quot;</span><span class="s0">&gt;</span>
+
+        <span class="s0">&lt;TextView</span>
+            <span class="s1">android:id</span><span class="s2">=&quot;@+id/MenuTitleText&quot;</span>
+            <span class="s1">android:layout_width</span><span class="s2">=&quot;match_parent&quot;</span>
+            <span class="s1">android:layout_height</span><span class="s2">=&quot;wrap_content&quot;</span>
+            <span class="s1">android:text</span><span class="s2">=&quot;@string/MenuTitleText&quot;</span>
+            <span class="s1">android:textAlignment</span><span class="s2">=&quot;center&quot;</span>
+            <span class="s1">android:textAppearance</span><span class="s2">=&quot;@style/TextAppearance.AppCompat.Body1&quot;</span>
+            <span class="s1">android:textColor</span><span class="s2">=&quot;@color/white&quot;</span>
+            <span class="s1">android:textSize</span><span class="s2">=&quot;34sp&quot;</span>
+            <span class="s1">android:textStyle</span><span class="s2">=&quot;bold&quot;</span>
+            <span class="s1">android:translationY</span><span class="s2">=&quot;50dp&quot; </span><span class="s0">/&gt;</span>
+
+        <span class="s0">&lt;Button</span>
+            <span class="s1">android:id</span><span class="s2">=&quot;@+id/MenuWorkoutButton&quot;</span>
+            <span class="s1">android:layout_width</span><span class="s2">=&quot;330dp&quot;</span>
+            <span class="s1">android:layout_height</span><span class="s2">=&quot;100dp&quot;</span>
+            <span class="s1">android:text</span><span class="s2">=&quot;@string/MenuWorkoutButtonText&quot;</span>
+            <span class="s1">android:textSize</span><span class="s2">=&quot;20sp&quot;</span>
+            <span class="s1">android:translationX</span><span class="s2">=&quot;40dp&quot;</span>
+            <span class="s1">android:textStyle</span><span class="s2">=&quot;bold&quot;</span>
+            <span class="s1">android:translationY</span><span class="s2">=&quot;125dp&quot; </span><span class="s0">/&gt;</span>
+
+        <span class="s0">&lt;Button</span>
+            <span class="s1">android:id</span><span class="s2">=&quot;@+id/MenuWaterCalButton&quot;</span>
+            <span class="s1">android:layout_width</span><span class="s2">=&quot;330dp&quot;</span>
+            <span class="s1">android:layout_height</span><span class="s2">=&quot;100dp&quot;</span>
+            <span class="s1">android:text</span><span class="s2">=&quot;@string/MenuWaterCalButtonText&quot;</span>
+            <span class="s1">android:textSize</span><span class="s2">=&quot;20sp&quot;</span>
+            <span class="s1">android:translationX</span><span class="s2">=&quot;40dp&quot;</span>
+            <span class="s1">android:textStyle</span><span class="s2">=&quot;bold&quot;</span>
+            <span class="s1">android:translationY</span><span class="s2">=&quot;200dp&quot; </span><span class="s0">/&gt;</span>
+
+        <span class="s0">&lt;Button</span>
+            <span class="s1">android:id</span><span class="s2">=&quot;@+id/MenuProgressButton&quot;</span>
+            <span class="s1">android:layout_width</span><span class="s2">=&quot;330dp&quot;</span>
+            <span class="s1">android:layout_height</span><span class="s2">=&quot;100dp&quot;</span>
+            <span class="s1">android:text</span><span class="s2">=&quot;@string/MenuProgressButtonText&quot;</span>
+            <span class="s1">android:textSize</span><span class="s2">=&quot;20sp&quot;</span>
+            <span class="s1">android:translationX</span><span class="s2">=&quot;40dp&quot;</span>
+            <span class="s1">android:textStyle</span><span class="s2">=&quot;bold&quot;</span>
+            <span class="s1">android:translationY</span><span class="s2">=&quot;275dp&quot; </span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;/LinearLayout&gt;</span>
+<span class="s0">&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</span></pre>
+</body>
+</html>

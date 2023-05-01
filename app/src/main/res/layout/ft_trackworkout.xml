@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/WorkoutTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/WorkoutTitleText"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:translationY="50dp" />
+
+        <TextView
+            android:id="@+id/SelectWorkout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/EnterWorkoutText"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:translationY="100dp" />
+
+        <Spinner
+            android:id="@+id/dropdownmenu"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/white"
+            android:textStyle="bold"
+            android:translationX="275dp"
+            android:translationY="100dp" />
+
+        <EditText
+            android:id="@+id/EditWorkoutSelect"
+            android:layout_width="274dp"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:translationY="51dp" />
+
+        <TextView
+            android:id="@+id/EnterRepsText"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:text="@string/EnterRepsText"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:translationY="125dp" />
+
+        <EditText
+            android:id="@+id/EditRepsText"
+            android:layout_width="125dp"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:inputType="numberSigned"
+            android:text="@string/EditRepsText"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/white"
+            android:textColorHint="#FFFFFF"
+            android:textColorLink="@color/white"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:translationX="175dp"
+            android:translationY="86dp" />
+
+        <TextView
+            android:id="@+id/EnterSetsText"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/EnterSetsText"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:translationY="175dp" />
+
+        <EditText
+            android:id="@+id/EditSetsText"
+            android:layout_width="125dp"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:inputType="numberSigned"
+            android:text="@string/EditSetsText"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:translationX="175dp"
+            android:translationY="136dp" />
+
+        <Button
+            android:id="@+id/WorkoutSubmitButton"
+            android:layout_width="320dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/SubmitButtonText"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:translationY="240dp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

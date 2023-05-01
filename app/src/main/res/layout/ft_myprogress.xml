@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#000000"
+    tools:context=".TrackProgressActivity">
+
+    <TextView
+        android:id="@+id/workoutDataTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Workout Data"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF" />
+
+    <!-- Workout Data table header -->
+
+    <TableRow
+        android:id="@+id/workoutDataHeader"
+        android:layout_width="371dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/WorkoutHeader"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/RepsHeader"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:translationX="80dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/SetsHeader"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:translationX="170dp" />
+
+    </TableRow>
+
+    <ScrollView
+        android:layout_width="371dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <TableLayout
+            android:id="@+id/workoutDataTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:stretchColumns="*" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/deleteWorkoutDataButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/waterCalDataTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Water and Calorie Data"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF" />
+
+    <!-- Water and Calorie Data table header -->
+
+    <TableRow
+        android:id="@+id/waterCalDataHeader"
+        android:layout_width="371dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/WaterHeader"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/CaloriesHeader"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:translationX="125dp" />
+
+    </TableRow>
+
+    <ScrollView
+        android:layout_width="371dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <TableLayout
+            android:id="@+id/waterCalDataTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:stretchColumns="*" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/deleteWaterCalDataButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>

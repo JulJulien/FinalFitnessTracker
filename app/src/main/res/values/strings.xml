@@ -1,0 +1,79 @@
+<resources>
+    // Strings Used in Menu
+    <string name="app_name">Fittness Tracker</string>
+    <string name="MenuWorkoutButtonText">Track Workout</string>
+    <string name="MenuWaterCalButtonText">Track Water/Calories</string>
+    <string name="MenuProgressButtonText">My Progress</string>
+    <string name="MenuTitleText">My Fitness Tracker</string>
+
+    // Strings Used in Water and Calories Screen
+    <string name="WaterCalTitleText">Track Water and Calories</string>
+    <string name="EnterCaloriesText">Enter Calories:</string>
+    <string name="EditCaloriesText"></string>                       // This text is left blank so that no text is already in the user input.
+    <string name="EnterWaterText">Enter Water Oz:</string>
+    <string name="EditWaterText"></string>                          // same with this one.
+
+    // String Used in Workout Screen
+    <string name="WorkoutTitleText">Track Workout</string>
+    <string name="EnterWorkoutText">Select Workout:</string>
+    <string name="EnterRepsText">Enter Reps:</string>
+    <string name="EnterSetsText">Enter Sets:</string>
+    <string name="EditWorkoutSelect">__________________</string>
+    <string name="EditRepsText"></string>
+    <string name="EditSetsText"></string>
+
+    <string name="WorkoutHeader">Workout</string>
+    <string name="RepsHeader">Reps</string>
+    <string name="SetsHeader">Sets</string>
+    <string name="WaterHeader">Water Oz</string>
+    <string name="CaloriesHeader">Calories</string>
+
+    <string-array name="dropdown_items">
+        <item>Push-ups</item>
+        <item>Squats</item>
+        <item>Plank</item>
+        <item>Mountain climbers</item>
+        <item>Lunges</item>
+        <item>Burpees</item>
+        <item>Jumping jacks</item>
+        <item>Crunches</item>
+        <item>High knees</item>
+        <item>Tricep dips</item>
+        <item>Wall sits</item>
+        <item>Russian twists</item>
+        <item>Leg raises</item>
+        <item>Step-ups</item>
+        <item>Supermans</item>
+        <item>Bicycle crunches</item>
+        <item>Side plank</item>
+        <item>Flutter kicks</item>
+        <item>Calf raises</item>
+        <item>Bridge</item>
+        <item>Bench press</item>
+        <item>Deadlifts</item>
+        <item>Shoulder press</item>
+        <item>Bicep curls</item>
+        <item>Lat pulldowns</item>
+        <item>Leg press</item>
+        <item>Seated cable rows</item>
+        <item>Lunges with barbell</item>
+        <item>Chest fly machine</item>
+        <item>Leg extensions</item>
+        <item>Hamstring curls</item>
+        <item>Tricep pushdowns</item>
+        <item>Dumbbell flyes</item>
+        <item>Cable lateral raises</item>
+        <item>Smith machine squats</item>
+        <item>Cable chest press</item>
+        <item>Leg press calf raises</item>
+        <item>Shoulder press</item>
+        <item>Seated leg curls</item>
+        <item>Seated calf raises</item>
+    </string-array>
+
+    <string name="ProgressTitleText">My Progress</string>
+    <string name="CaloriesHeaderText">Calories</string>
+    <string name="WaterHeaderText">Water</string>
+    <string name="SubmitButtonText">Submit</string>
+
+</resources>

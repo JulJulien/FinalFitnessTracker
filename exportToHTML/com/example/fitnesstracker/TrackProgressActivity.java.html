@@ -1,0 +1,161 @@
+<html>
+<head>
+<title>TrackProgressActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #808080;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+TrackProgressActivity.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.fitnesstracker</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">androidx.appcompat.app.AppCompatActivity</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.content.SharedPreferences</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.graphics.Color</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.os.Bundle</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.view.View</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.Button</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.TableLayout</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.TableRow</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.TextView</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">TrackProgressActivity </span><span class="s0">extends </span><span class="s1">AppCompatActivity {</span>
+
+    <span class="s0">private </span><span class="s1">TableLayout workoutDataTable</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">TableLayout waterCalDataTable</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">Button deleteWorkoutDataButton</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">Button deleteWaterCalDataButton</span><span class="s0">;</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span><span class="s0">;</span>
+        <span class="s1">setContentView(R.layout.ft_myprogress)</span><span class="s0">;</span>
+
+        <span class="s1">workoutDataTable = findViewById(R.id.workoutDataTable)</span><span class="s0">;</span>
+        <span class="s1">waterCalDataTable = findViewById(R.id.waterCalDataTable)</span><span class="s0">;</span>
+
+        <span class="s1">deleteWorkoutDataButton = findViewById(R.id.deleteWorkoutDataButton)</span><span class="s0">;</span>
+        <span class="s1">deleteWaterCalDataButton = findViewById(R.id.deleteWaterCalDataButton)</span><span class="s0">;</span>
+
+        <span class="s1">SharedPreferences sharedPref = getSharedPreferences(</span><span class="s2">&quot;fitnessData&quot;</span><span class="s0">, </span><span class="s1">MODE_PRIVATE)</span><span class="s0">;</span>
+
+        <span class="s1">String workoutData = sharedPref.getString(</span><span class="s2">&quot;workoutData&quot;</span><span class="s0">, </span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">String waterCalData = sharedPref.getString(</span><span class="s2">&quot;waterCalData&quot;</span><span class="s0">, </span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">populateWorkoutTable(workoutData)</span><span class="s0">;</span>
+        <span class="s1">populateWaterCalTable(waterCalData)</span><span class="s0">;</span>
+
+        <span class="s1">deleteWorkoutDataButton.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View view) {</span>
+                <span class="s1">deleteLastWorkoutEntry()</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+
+        <span class="s1">deleteWaterCalDataButton.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View view) {</span>
+                <span class="s1">deleteLastWaterCalEntry()</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s3">// The rest of the existing methods</span>
+
+    <span class="s0">private void </span><span class="s1">populateWorkoutTable(String workoutData) {</span>
+        <span class="s0">if </span><span class="s1">(!workoutData.isEmpty()) {</span>
+            <span class="s1">String[] workoutEntries = workoutData.split(</span><span class="s2">&quot;</span><span class="s0">\n\n</span><span class="s2">&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+            <span class="s0">for </span><span class="s1">(String entry : workoutEntries) {</span>
+                <span class="s1">String[] entryValues = entry.split(</span><span class="s2">&quot;</span><span class="s0">\n</span><span class="s2">&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+                <span class="s1">TableRow newRow = </span><span class="s0">new </span><span class="s1">TableRow(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s0">for </span><span class="s1">(String value : entryValues) {</span>
+                    <span class="s0">if </span><span class="s1">(value.split(</span><span class="s2">&quot;: &quot;</span><span class="s1">).length &gt; </span><span class="s4">1</span><span class="s1">) {</span>
+                        <span class="s1">TextView cell = </span><span class="s0">new </span><span class="s1">TextView(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+                        <span class="s1">cell.setText(value.split(</span><span class="s2">&quot;: &quot;</span><span class="s1">)[</span><span class="s4">1</span><span class="s1">])</span><span class="s0">;</span>
+                        <span class="s1">cell.setTextColor(Color.WHITE)</span><span class="s0">;</span>
+                        <span class="s1">cell.setPadding(</span><span class="s4">8</span><span class="s0">, </span><span class="s4">8</span><span class="s0">, </span><span class="s4">8</span><span class="s0">, </span><span class="s4">8</span><span class="s1">)</span><span class="s0">;</span>
+                        <span class="s1">newRow.addView(cell)</span><span class="s0">;</span>
+                    <span class="s1">}</span>
+                <span class="s1">}</span>
+                <span class="s1">workoutDataTable.addView(newRow)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s0">private void </span><span class="s1">populateWaterCalTable(String waterCalData) {</span>
+        <span class="s0">if </span><span class="s1">(!waterCalData.isEmpty()) {</span>
+            <span class="s1">String[] waterCalEntries = waterCalData.split(</span><span class="s2">&quot;</span><span class="s0">\n\n</span><span class="s2">&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+            <span class="s0">for </span><span class="s1">(String entry : waterCalEntries) {</span>
+                <span class="s1">String[] entryValues = entry.split(</span><span class="s2">&quot;</span><span class="s0">\n</span><span class="s2">&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+                <span class="s1">TableRow newRow = </span><span class="s0">new </span><span class="s1">TableRow(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s0">for </span><span class="s1">(String value : entryValues) {</span>
+                    <span class="s0">if </span><span class="s1">(value.split(</span><span class="s2">&quot;: &quot;</span><span class="s1">).length &gt; </span><span class="s4">1</span><span class="s1">) {</span>
+                        <span class="s1">TextView cell = </span><span class="s0">new </span><span class="s1">TextView(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+                        <span class="s1">cell.setText(value.split(</span><span class="s2">&quot;: &quot;</span><span class="s1">)[</span><span class="s4">1</span><span class="s1">])</span><span class="s0">;</span>
+                        <span class="s1">cell.setTextColor(Color.WHITE)</span><span class="s0">;</span>
+                        <span class="s1">cell.setPadding(</span><span class="s4">8</span><span class="s0">, </span><span class="s4">8</span><span class="s0">, </span><span class="s4">8</span><span class="s0">, </span><span class="s4">8</span><span class="s1">)</span><span class="s0">;</span>
+                        <span class="s1">newRow.addView(cell)</span><span class="s0">;</span>
+                    <span class="s1">}</span>
+                <span class="s1">}</span>
+                <span class="s1">waterCalDataTable.addView(newRow)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s0">private void </span><span class="s1">deleteLastWorkoutEntry() {</span>
+        <span class="s1">SharedPreferences sharedPref = getSharedPreferences(</span><span class="s2">&quot;fitnessData&quot;</span><span class="s0">, </span><span class="s1">MODE_PRIVATE)</span><span class="s0">;</span>
+        <span class="s1">String workoutData = sharedPref.getString(</span><span class="s2">&quot;workoutData&quot;</span><span class="s0">, </span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s0">if </span><span class="s1">(!workoutData.isEmpty()) {</span>
+            <span class="s1">String[] workoutEntries = workoutData.split(</span><span class="s2">&quot;</span><span class="s0">\n\n</span><span class="s2">&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">StringBuilder newWorkoutData = </span><span class="s0">new </span><span class="s1">StringBuilder()</span><span class="s0">;</span>
+
+            <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s0">; </span><span class="s1">i &lt; workoutEntries.length - </span><span class="s4">1</span><span class="s0">; </span><span class="s1">i++) {</span>
+                <span class="s1">newWorkoutData.append(workoutEntries[i]).append(</span><span class="s2">&quot;</span><span class="s0">\n\n</span><span class="s2">&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+
+            <span class="s1">SharedPreferences.Editor editor = sharedPref.edit()</span><span class="s0">;</span>
+            <span class="s1">editor.putString(</span><span class="s2">&quot;workoutData&quot;</span><span class="s0">, </span><span class="s1">newWorkoutData.toString().trim())</span><span class="s0">;</span>
+            <span class="s1">editor.apply()</span><span class="s0">;</span>
+
+            <span class="s1">workoutDataTable.removeAllViews()</span><span class="s0">;</span>
+            <span class="s1">populateWorkoutTable(newWorkoutData.toString().trim())</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s0">private void </span><span class="s1">deleteLastWaterCalEntry() {</span>
+        <span class="s1">SharedPreferences sharedPref = getSharedPreferences(</span><span class="s2">&quot;fitnessData&quot;</span><span class="s0">, </span><span class="s1">MODE_PRIVATE)</span><span class="s0">;</span>
+        <span class="s1">String waterCalData = sharedPref.getString(</span><span class="s2">&quot;waterCalData&quot;</span><span class="s0">, </span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s0">if </span><span class="s1">(!waterCalData.isEmpty()) {</span>
+            <span class="s1">String[] waterCalEntries = waterCalData.split(</span><span class="s2">&quot;</span><span class="s0">\n\n</span><span class="s2">&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">StringBuilder newWaterCalData = </span><span class="s0">new </span><span class="s1">StringBuilder()</span><span class="s0">;</span>
+
+            <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s0">; </span><span class="s1">i &lt; waterCalEntries.length - </span><span class="s4">1</span><span class="s0">; </span><span class="s1">i++) {</span>
+                <span class="s1">newWaterCalData.append(waterCalEntries[i]).append(</span><span class="s2">&quot;</span><span class="s0">\n\n</span><span class="s2">&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+
+            <span class="s1">SharedPreferences.Editor editor = sharedPref.edit()</span><span class="s0">;</span>
+            <span class="s1">editor.putString(</span><span class="s2">&quot;waterCalData&quot;</span><span class="s0">, </span><span class="s1">newWaterCalData.toString().trim())</span><span class="s0">;</span>
+            <span class="s1">editor.apply()</span><span class="s0">;</span>
+
+            <span class="s1">waterCalDataTable.removeAllViews()</span><span class="s0">;</span>
+            <span class="s1">populateWaterCalTable(newWaterCalData.toString().trim())</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>
